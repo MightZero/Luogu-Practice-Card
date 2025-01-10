@@ -204,6 +204,17 @@ for i, (name, count, color) in enumerate(zip(difficulty_names, problem_counts, c
                                font_family='SimHei', font_size=12, text_anchor='end')
     dwg.add(text_difficulty)
 
+# 获取当前时间
+current_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+
+# 添加隐藏的时间戳文字
+timestamp_text = f'生成时间: {current_time}'
+timestamp_font_size = 14
+timestamp_text_x = -1000  # 将时间戳放置在视图之外
+timestamp_text_y = -1000  # 将时间戳放置在视图之外
+timestamp = dwg.text(timestamp_text, insert=(timestamp_text_x, timestamp_text_y), font_family='SimHei', font_size=timestamp_font_size, text_anchor='start', opacity=0)
+dwg.add(timestamp)
+
 # 保存 SVG 文件
 dwg.save()
 
