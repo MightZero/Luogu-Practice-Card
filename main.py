@@ -155,7 +155,7 @@ card_width = total_width + 100  # 卡片宽度
 card_height = 600  # 卡片高度，确保有足够的空间
 
 # 创建 SVG 文件
-dwg = svgwrite.Drawing('difficulty_counts_svgwrite.svg', profile='tiny', size=(card_width, card_height))
+dwg = svgwrite.Drawing('difficulty_counts.svg', profile='tiny', size=(card_width, card_height))
 
 # 设置卡片样式
 card = dwg.rect(insert=(50, 50), size=(card_width - 100, card_height - 100), rx=10, ry=10, fill='white', stroke='lightgray', stroke_width=1)
@@ -208,4 +208,4 @@ for i, (name, count, color) in enumerate(zip(difficulty_names, problem_counts, c
 dwg.save()
 
 # 输出 SVG 文件路径
-print('SVG 文件已保存为 difficulty_counts_svgwrite.svg')
+print('SVG 文件已保存为 difficulty_counts.svg')
