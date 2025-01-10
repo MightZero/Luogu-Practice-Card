@@ -42,5 +42,5 @@ jobs:
     - name: Upload SVG as an artifact
       uses: actions/upload-artifact@v3
       with:
-        name: difficulty_counts_svgwrite
-        path: difficulty_counts_svgwrite.svg
+        name: difficulty_counts
+        path: difficulty_counts.svg
