@@ -1,0 +1,41 @@
+name: Run Python Script
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out the repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python 3.x
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name: Install Playwright dependencies
+      run: |
+        sudo apt-get install -y libnss3 libatk-bridge2.0-0 libatk1.0-0 libcups2 libxss1 libgdk-pixbuf2.0-0 libasound2 libgbm1
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Run Python Script
+      run: |
+        python main.py 
+
+    - name: Upload SVG as an artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: difficulty_counts_svgwrite
+        path: difficulty_counts_svgwrite.svg

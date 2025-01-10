@@ -1,2 +1,3 @@
 difficulty_counts.svg
 difficulty_cache.json
+.venv/*
