@@ -53,7 +53,7 @@ async def fetch_page_content():
         page = await browser.new_page()
 
         # 设置用户的洛谷个人主页 URL
-        url = f'https://www.luogu.com.cn/user/{uid}#practice'
+        url = f'https://www.luogu.com/user/{uid}#practice'
 
         # 打开页面
         await page.goto(url)
