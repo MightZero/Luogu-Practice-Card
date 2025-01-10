@@ -46,8 +46,8 @@ jobs:
 
     - name: Commit and push generated file
       run: |
-        git add difficulty_counts.svg  # 将生成的文件添加到 Git
-        git commit -m "Add generated difficulty_counts.svg"  # 提交更改
-        git push origin master  # 推送到 master 分支
+        git add difficulty_counts.svg  
+        git commit -m "Add generated difficulty_counts.svg" 
+        git push origin master
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
