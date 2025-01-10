@@ -27,7 +27,8 @@ jobs:
 
     - name: Install Playwright dependencies
       run: |
-        sudo apt-get install -y libnss3 libatk-bridge2.0-0 libatk1.0-0 libcups2 libxss1 libgdk-pixbuf2.0-0 libasound2 libgbm1
+        python -m pip install playwright
+        python -m playwright install
 
     - name: Install dependencies
       run: |
