@@ -39,8 +39,15 @@ jobs:
       run: |
         python main.py 
 
-    - name: Upload SVG as an artifact
-      uses: actions/upload-artifact@v3
-      with:
-        name: difficulty_counts
-        path: difficulty_counts.svg
+    - name: Set up Git
+      run: |
+        git config user.name "GitHub Actions"
+        git config user.email "actions@github.com"
+
+    - name: Commit and push generated file
+      run: |
+        git add difficulty_counts.svg  # 将生成的文件添加到 Git
+        git commit -m "Add generated difficulty_counts.svg"  # 提交更改
+        git push origin master  # 推送到 master 分支
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
